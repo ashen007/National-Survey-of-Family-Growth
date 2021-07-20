@@ -3,14 +3,31 @@ import numpy as np
 
 
 class MakePregMap:
+    """
+    mapping records according to given index column
+    """
+
     def __init__(self, data, id_column):
+        """
+        initialize
+        :param data: dataframe
+        :param id_column: index column for records
+        """
         self.data = data
         self.case_ids = id_column
 
     def unique_responds(self):
+        """
+        get unique indexes
+        :return: array
+        """
         return self.data[self.case_ids].unique()
 
     def pregnancy_map(self):
+        """
+        map records according to unique indexes
+        :return: dict
+        """
         maped_pregs = {}
         for case_id in self.unique_responds():
             maped_pregs[case_id] = self.data[self.data[self.case_ids] == case_id]
@@ -19,6 +36,12 @@ class MakePregMap:
 
 
 def get_preg_lengths(data, id_column):
+    """
+    pregnancy length
+    :param data: dataFrame
+    :param id_column: index column
+    :return: dataFrame
+    """
     preg_len = {}
     maped_pregs = MakePregMap(data, id_column)
 
@@ -32,6 +55,12 @@ def get_preg_lengths(data, id_column):
 
 
 def get_res_ages(data, id_column):
+    """
+    age data by index
+    :param data: dataframe
+    :param id_column: index column
+    :return: dataFrame
+    """
     resp_ages = {}
     maped_pregs = MakePregMap(data, id_column)
 
