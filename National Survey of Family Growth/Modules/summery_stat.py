@@ -52,6 +52,8 @@ class SummeryStat:
         return np.std(self.data[self.column])
 
 
+
+
 class CDF:
     def __init__(self, dataframe, label):
         self.data = dataframe
