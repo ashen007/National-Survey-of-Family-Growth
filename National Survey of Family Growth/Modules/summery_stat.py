@@ -51,7 +51,23 @@ class SummeryStat:
         """
         return np.std(self.data[self.column])
 
+    def quantiles(self, percentile):
+        """
+        calculate quantile
+        :param percentile: percentile
+        :return: quantile
+        """
+        return np.quantile(self.data[self.column], percentile)
 
+    def iqr(self):
+        """
+        calculate inter-quartile range
+        :return: iqr
+        """
+        q1 = np.quantile(self.data[self.column], 0.25)
+        q2 = np.quantile(self.data[self.column], 0.75)
+
+        return q2 - q1
 
 
 class CDF:
