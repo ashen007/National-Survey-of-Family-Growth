@@ -50,3 +50,16 @@ class SummeryStat:
         :return: std
         """
         return np.std(self.data[self.column])
+
+
+class CDF:
+    def __init__(self, dataframe, label):
+        self.data = dataframe
+        self.column = label
+
+    def prob(self):
+        prob = {}
+        for value in self.data[self.column].values:
+            prob[value] = len(self.data[self.data[self.column] <= value]) / self.data.shape[0]
+
+        return prob
