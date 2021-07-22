@@ -7,21 +7,32 @@ class DrawGraph:
     draw graphs related to data provided
     """
 
-    def __init__(self, dataframe):
+    def __init__(self, dataframe, figsize, dpi):
         """
         get dataFrame
         :param dataframe: data for create graphs
         """
         self.dataframe = dataframe
+        self.size = figsize
+        self.dpi = dpi
 
-    def create_figure(self, size, dpi):
+    @property
+    def create_figure(self):
         """
         create figure to insert plot
         :param size: figure width and height
         :param dpi: figure DPI
         :return: figure
         """
-        plt.figure(figsize=size, dpi=dpi)
+        return plt.figure(figsize=self.size, dpi=self.dpi)
+
+    @property
+    def show(self):
+        """
+        show figure with plot created
+        :return: figure
+        """
+        return plt.show()
 
     def hist(self, x=None, y=None, bins='auto', stat='count', hue=None, **options):
         """
@@ -54,9 +65,4 @@ class DrawGraph:
                     **options
                     )
 
-    def show(self):
-        """
-        show figure with plot created
-        :return: figure
-        """
-        plt.show()
+    # def cdf(self):
