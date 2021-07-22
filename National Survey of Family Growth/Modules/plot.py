@@ -65,7 +65,8 @@ class DrawGraph:
                     **options
                     )
 
-    def cdf(self, x=None, y=None, color=None, hue=None, stat='proportion', complementary=False, log_scale=False):
+    def cdf(self, x=None, y=None, color=None, label=None, hue=None,
+            stat='proportion', complementary=False, log_scale=False):
         """
         create cumulative distribution graph
         :param color: plot color
@@ -78,6 +79,6 @@ class DrawGraph:
         :return: cdf or ccdf
         """
         sns.ecdfplot(data=self.dataframe,
-                     x=x, y=y, hue=hue, color=color,
+                     x=x, y=y, hue=hue, color=color, label=label,
                      stat=stat, complementary=complementary, log_scale=log_scale,
                      )
