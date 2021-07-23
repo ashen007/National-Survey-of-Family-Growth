@@ -84,3 +84,31 @@ def get_res_ages(data, id_column):
                                  'agecon_fst', 'agepreg_fst',
                                  'pregord_lst', 'birthord_lst',
                                  'agecon_lst', 'agepreg_lst'])
+
+
+def get_outcome_rec(data, id_column):
+    """
+    get each respondents pregnancy outcome details
+    :param data: dataframe
+    :param id_column: index column
+    :return: dataFrame
+    """
+    outcomes = {}
+    maped_pregs = MakePregMap(data, id_column)
+
+    for key, value in maped_pregs.pregnancy_map().items():
+        outcomes[key] = [value.shape[0],
+                         len(value[value['outcome'] == 1]),
+                         len(value[value['outcome'] == 2]),
+                         len(value[value['outcome'] == 3]),
+                         len(value[value['outcome'] == 4]),
+                         len(value[value['outcome'] == 5]),
+                         len(value[value['outcome'] == 6])
+                         ]
+
+    return pd.DataFrame(outcomes.values(),
+                        index=outcomes.keys(),
+                        columns=['pregnum',
+                                 'livebrth', 'induabor',
+                                 'stilbirth', 'miscarg',
+                                 'epcpreg', 'curpreg'])
