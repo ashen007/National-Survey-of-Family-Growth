@@ -16,6 +16,7 @@ class MakePregMap:
         self.data = data
         self.case_ids = id_column
 
+    @property
     def unique_responds(self):
         """
         get unique indexes
@@ -29,7 +30,7 @@ class MakePregMap:
         :return: dict
         """
         maped_pregs = {}
-        for case_id in self.unique_responds():
+        for case_id in self.unique_responds:
             maped_pregs[case_id] = self.data[self.data[self.case_ids] == case_id]
 
         return maped_pregs

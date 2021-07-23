@@ -20,8 +20,6 @@ class DrawGraph:
     def create_figure(self):
         """
         create figure to insert plot
-        :param size: figure width and height
-        :param dpi: figure DPI
         :return: figure
         """
         return plt.figure(figsize=self.size, dpi=self.dpi)
@@ -33,6 +31,10 @@ class DrawGraph:
         :return: figure
         """
         return plt.show()
+
+    def subplots(self, size, rows, cols):
+        fig, axes = plt.subplots(figsize=size, dpi=self.dpi, nrows=rows, ncols=cols)
+        return axes.ravel()
 
     def hist(self, x=None, y=None, bins='auto', stat='count', hue=None, **options):
         """
