@@ -78,14 +78,35 @@ class SummeryStat:
         return np.sum((self.data[self.column] - self.mean()) ** k) / self.data.shape[0]
 
 
+class HIST:
+    def __init__(self, dataFrame, column):
+        self.data = dataFrame
+        self.column = column
+        self.frequencies = {}
+
+    def freqs(self):
+        self.frequencies = self.data[self.column].value_counts()
+
+    def freq(self, x):
+        self.freqs()
+        return self.frequencies[x]
+
+    def render(self, **options):
+        hist_graph = DrawGraph(self.data, [12, 6], 300)
+
+        hist_graph.create_figure
+        hist_graph.hist(x=self.column, stat='frequency', **options)
+        hist_graph.show
+
+
 class PMF:
     """
     probability mass function
     """
 
-    def __init__(self, dataFrame, col):
+    def __init__(self, dataFrame, column):
         self.data = dataFrame
-        self.col = col
+        self.col = column
         self.prob = self._pmfs()
 
     def _pmfs(self):
@@ -118,9 +139,9 @@ class PMF:
 
 
 class CDF:
-    def __init__(self, dataframe, label):
+    def __init__(self, dataframe, column):
         self.data = dataframe
-        self.column = label
+        self.column = column
         self.cdfs = {}
 
     def prob(self):
