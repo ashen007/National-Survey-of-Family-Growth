@@ -115,10 +115,36 @@ class CDF:
     def __init__(self, dataframe, label):
         self.data = dataframe
         self.column = label
+        self.cdfs = {}
 
     def prob(self):
         prob = {}
         for value in self.data[self.column].values:
             prob[value] = len(self.data[self.data[self.column] <= value]) / self.data.shape[0]
 
-        return prob
+        self.cdfs = prob
+
+        return sorted(prob)
+
+    def cdf(self, x):
+        """
+        cumulative distribution function of x
+        :param x: value want to calculate cdf
+        :return: cdf of x
+        """
+        if not self.cdfs:
+            self.prob()
+        else:
+            return self.cdfs[x]
+
+    def render(self, complementary=False, **options):
+        """
+        create cdf or ccdf graph
+        :param options: key words of seaborn ecdfplot can use here
+        :return: figure
+        """
+        cdf_graph = DrawGraph(self.data, [12, 6], 300)
+
+        cdf_graph.create_figure
+        cdf_graph.cdf(x=self.column, complementary=complementary, **options)
+        cdf_graph.show
