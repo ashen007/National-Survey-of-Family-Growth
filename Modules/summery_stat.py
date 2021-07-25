@@ -71,6 +71,12 @@ class SummeryStat:
 
         return q2 - q1
 
+    def raw_moment(self, k):
+        return np.sum(self.data[self.column] ** k) / self.data.shape[0]
+
+    def central_moment(self, k):
+        return np.sum((self.data[self.column] - self.mean()) ** k) / self.data.shape[0]
+
 
 class PMF:
     """
