@@ -1,6 +1,8 @@
 import numpy as np
 import scipy.stats as ss
 
+from Modules.plot import DrawGraph
+
 
 class SummeryStat:
     """
@@ -68,6 +70,45 @@ class SummeryStat:
         q2 = np.quantile(self.data[self.column], 0.75)
 
         return q2 - q1
+
+
+class PMF:
+    """
+    probability mass function
+    """
+
+    def __init__(self, dataFrame, col):
+        self.data = dataFrame
+        self.col = col
+        self.prob = self._pmfs()
+
+    def _pmfs(self):
+        """
+        calculate pmfs for unique values
+        :return: probability
+        """
+        probs = self.data[self.col].value_counts() / self.data.shape[0]
+        return probs.to_dict()
+
+    def pmf(self, x):
+        """
+        probability mass function of x
+        :param x: value want to calculate pmf
+        :return: pmf of x
+        """
+        return self.prob[x]
+
+    def render(self, **options):
+        """
+        create pmf graph
+        :param options: key words of seaborn histplot can use here
+        :return: figure
+        """
+        pmf_graph = DrawGraph(self.data, [12, 6], 300)
+
+        pmf_graph.create_figure
+        pmf_graph.hist(x=self.col, stat='probability', **options)
+        pmf_graph.show
 
 
 class CDF:
