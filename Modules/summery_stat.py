@@ -77,6 +77,18 @@ class SummeryStat:
     def central_moment(self, k):
         return np.sum((self.data[self.column] - self.mean()) ** k) / self.data.shape[0]
 
+    def standardize_moment(self, k):
+        var = self.standardize_moment(2)
+        std = np.sqrt(var)
+
+        return self.central_moment(k) / std ** k
+
+    def skewness(self):
+        return self.standardize_moment(3)
+
+    def pearson_median_skewness(self):
+        return 3 * (self.mean() - self.median()) / self.standard_deviation()
+
 
 class HIST:
     def __init__(self, dataFrame, column):
