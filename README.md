@@ -2,6 +2,8 @@
 
 ![age distribution of respondents](https://github.com/ashen007/National-Survey-of-Family-Growth/blob/master/Graphs/respondents_age.jpg)
 
+![age distribution of respondents]()
+
 ### Is first babies comes earlier than other babies?
 
 <p style="text-align: justify">compare live first delivery and live other deliveries' pregnancy duration. less likely to early preterm and preterm
