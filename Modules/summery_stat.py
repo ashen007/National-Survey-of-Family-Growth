@@ -187,3 +187,8 @@ class CDF:
         cdf_graph.create_figure
         cdf_graph.cdf(x=self.column, complementary=complementary, **options)
         cdf_graph.show
+
+
+def jitter(values, jitter=0.5):
+    n = len(values)
+    return np.random.uniform(-jitter, +jitter, n) + values

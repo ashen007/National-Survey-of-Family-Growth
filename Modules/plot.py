@@ -84,3 +84,7 @@ class DrawGraph:
                      x=x, y=y, hue=hue, color=color, label=label,
                      stat=stat, complementary=complementary, log_scale=log_scale,
                      )
+
+
+def scatter(x=None, y=None, **options):
+    return sns.scatterplot(x, y, **options)
