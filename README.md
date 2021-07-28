@@ -1,4 +1,11 @@
+<p align="center">
+<img src="https://www.cdc.gov/about/images/leadership/cdc-socialmedia-600x300px.jpg">
+</p>
+<hr>
+
 # National Survey of Family Growth
+
+<p style="text-align: justify">The National Survey of Family Growth (NSFG) gathers information on family life, marriage and divorce, pregnancy, infertility, use of contraception, and men’s and women’s health. The survey results are used by the U.S. Department of Health and Human Services and others to plan health services and health education programs, and to do statistical studies of families, fertility, and health.</p>
 
 ![age distribution of respondents](https://github.com/ashen007/National-Survey-of-Family-Growth/blob/master/Graphs/respondents_age.jpg)
 
