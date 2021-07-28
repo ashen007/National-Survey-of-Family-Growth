@@ -1,5 +1,7 @@
 # National Survey of Family Growth
 
+![age distribution of respondents](https://github.com/ashen007/National-Survey-of-Family-Growth/blob/master/Graphs/respondents_age.jpg)
+
 ### Is first babies comes earlier than other babies?
 
 <p style="text-align: justify">compare live first delivery and live other deliveries' pregnancy duration. less likely to early preterm and preterm
@@ -11,13 +13,24 @@ also less likely than other babies.</p>
 3 **TERM** (37-40 WEEKS)<br>
 4 **POST-TERM** (> 40WEEKS)
 
+#### cumulative probability
+![pregnancy length](https://github.com/ashen007/National-Survey-of-Family-Growth/blob/master/Graphs/preg_len.jpg)
+#### probability of each pregnancy length for all pregnancies
+![probability of pregnancy length](https://github.com/ashen007/National-Survey-of-Family-Growth/blob/master/Graphs/preg_len_prob.jpg)
+
 ### Is first babies comes letter for same mother?
 
 <p style="text-align: justify">most likely in all responds for same mother also have high porbability of in-term delivery. other than all mothers
 responds same mother has high probability on early delivery length in first baby. as in all mothers same mother also
 have low probability to in-term delivery on first baby other than other babies.</p>
 
+![pregnancy length for same mother](https://github.com/ashen007/National-Survey-of-Family-Growth/blob/master/Graphs/preg_len_same_mother.jpg)
+#### cumulative probability
+![pregnancy length probability](https://github.com/ashen007/National-Survey-of-Family-Growth/blob/master/Graphs/preg_len_same_mother_prob.jpg)
+
 ### Is higher income families has higher live births?
+
+
 
 * majority of respondents are in between their 20-30 when they conception and delivery.
 * majority of respondents are in between their 30-50 when they interviewed. it's good condition to have because
